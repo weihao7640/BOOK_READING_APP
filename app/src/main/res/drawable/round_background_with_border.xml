@@ -1,0 +1,19 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Shape với màu trong suốt cho phía bên ngoài -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#00000000" />
+        </shape>
+    </item>
+
+    <!-- Shape với màu nền và bo tròn cho phía trong -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#FFF" /> <!-- Thay đổi màu nền tại đây -->
+            <corners android:radius="50dp" /> <!-- Đặt bán kính bo tròn tại đây -->
+        </shape>
+    </item>
+
+    <!-- Hình ảnh (bitmap) -->
+    <item android:drawable="@drawable/intro_app1" /> <!-- Thay thế your_image bằng tên hình ảnh của bạn -->
+</layer-list>
