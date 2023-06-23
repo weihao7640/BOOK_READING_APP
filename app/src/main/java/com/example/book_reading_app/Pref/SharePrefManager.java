@@ -53,7 +53,7 @@ public class SharePrefManager {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(KEY_USERID, user.getId_user());
         editor.putString(KEY_NAME, user.getFullname_user());
-        editor.putString(KEY_EMAIL, user.getEmaill_user());
+        editor.putString(KEY_EMAIL, user.getEmail_user());
         editor.putString(KEY_PHONE, user.getPhone_user());
         editor.putString(KEY_SALT, user.getSalt_user());
         editor.putString(KEY_HASH_PASSWORD, user.getHash_password_user());

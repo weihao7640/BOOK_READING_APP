@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -44,6 +45,15 @@ public class LoginActivity extends Dialog {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+            AnhXa();
+
+            Login.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    LoginApp();
+
+                }
+            });
 
 
 
@@ -77,7 +87,7 @@ public class LoginActivity extends Dialog {
                                 userModel.getId_user(),
                                 userModel.getFullname_user(),
                                 userModel.getPhone_user(),
-                                userModel.getEmaill_user(),
+                                userModel.getEmail_user(),
                                 userModel.getAvatar_user(),
                                 userModel.getHash_password_user(),
                                 userModel.getSalt_user(),
