@@ -7,7 +7,7 @@ public class UserModel implements Serializable {
     private int id_user;
 private String fullname_user;
 private String phone_user;
-private String emaill_user;
+private String email_user;
 private String avatar_user;
 private String hash_password_user;
 private String salt_user;
@@ -20,6 +20,7 @@ private Boolean is_actived_user;
 private Boolean is_hiden_user;
 private Date created_date_user;
 private Date updated_date_user;
+
 
     public int getId_user() {
         return id_user;
@@ -45,12 +46,12 @@ private Date updated_date_user;
         this.phone_user = phone_user;
     }
 
-    public String getEmaill_user() {
-        return emaill_user;
+    public String getEmail_user() {
+        return email_user;
     }
 
-    public void setEmaill_user(String emaill_user) {
-        this.emaill_user = emaill_user;
+    public void setEmail_user(String email_user) {
+        this.email_user = email_user;
     }
 
     public String getAvatar_user() {
@@ -149,11 +150,11 @@ private Date updated_date_user;
         this.updated_date_user = updated_date_user;
     }
 
-    public UserModel(int id_user, String fullname_user, String phone_user, String emaill_user, String avatar_user, String hash_password_user, String salt_user, String username_user, Date birthday_user, Boolean gender_user, Boolean is_active_phone_user, Boolean is_active_email_user, Boolean is_actived_user, Boolean is_hiden_user, Date created_date_user, Date updated_date_user) {
+    public UserModel(int id_user, String fullname_user, String phone_user, String email_user, String avatar_user, String hash_password_user, String salt_user, String username_user, Date birthday_user, Boolean gender_user, Boolean is_active_phone_user, Boolean is_active_email_user, Boolean is_actived_user, Boolean is_hiden_user, Date created_date_user, Date updated_date_user) {
         this.id_user = id_user;
         this.fullname_user = fullname_user;
         this.phone_user = phone_user;
-        this.emaill_user = emaill_user;
+        this.email_user = email_user;
         this.avatar_user = avatar_user;
         this.hash_password_user = hash_password_user;
         this.salt_user = salt_user;

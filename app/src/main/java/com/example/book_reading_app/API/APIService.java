@@ -19,7 +19,7 @@ public interface APIService {
     @FormUrlEncoded
     @POST("login")
     Call<UserModel> login(@Field("username_user") String username, @Field("hash_password_user") String password);
-    @FormUrlEncoded
+
     @POST("signin")
     Call<UserModel> SignIn(@Body UserModel user);
 

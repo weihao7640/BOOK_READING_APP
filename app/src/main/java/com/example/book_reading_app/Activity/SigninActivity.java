@@ -25,7 +25,9 @@ import com.example.book_reading_app.R;
 import com.example.book_reading_app.Util.MaHoa;
 import com.google.android.material.snackbar.Snackbar;
 
-import java.util.Date;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -64,7 +66,7 @@ public class SigninActivity extends AppCompatActivity {
     public void SignIn(){
         String UsernamString= username.getText().toString();
         String FullnameString= fullname.getText().toString();
-        String EmaillString=emaill.getText().toString();
+        String EmailString=emaill.getText().toString();
         String PasswordString= password.getText().toString();
         String RePasswordString=repassword.getText().toString();
         String BirthdayString = birthday.getText().toString();
@@ -99,7 +101,7 @@ public class SigninActivity extends AppCompatActivity {
             radio_nam.requestFocus();
             return;
         }
-        if(TextUtils.isEmpty(EmaillString)){
+        if(TextUtils.isEmpty(EmailString)){
             emaill.setError("Tạo acc clone hay gì mà không nhập emaill! Hã? Hã? Sao không nhập hã?");
             emaill.requestFocus();
             return;
@@ -126,25 +128,27 @@ public class SigninActivity extends AppCompatActivity {
             return;
         }
         if (PasswordString.equals(RePasswordString)){
-            apiService= RetrofitClient.getInstance().getRetrofit(constants.ROOT_URL).create(APIService.class);
+
             PasswordString= MaHoa.toSHA1(PasswordString);
             UserModel u=new UserModel();
             u.setUsername_user(UsernamString);
             u.setFullname_user(FullnameString);
-            u.setEmaill_user(EmaillString);
+            u.setEmail_user(EmailString);
             u.setHash_password_user(PasswordString);
             u.setSalt_user("asjrlkmcoewj@tjle;oxqskjhdjksjf1jurVn");
             u.setAvatar_user(null);
             u.setCreated_date_user(null);
             u.setUpdated_date_user(null);
-            u.setIs_actived_user(null);
-            u.setIs_hiden_user(null);
-            u.setIs_active_email_user(null);
-            u.setIs_active_phone_user(null);
+            u.setIs_actived_user(true);
+            u.setIs_hiden_user(false);
+            u.setIs_active_email_user(false);
+            u.setIs_active_phone_user(false);
             u.setPhone_user(null);
-            u.setGender_user(null);
-            u.setBirthday_user(null);
+            if (radio_nam.isChecked()==true){u.setGender_user(true);}
+            else {u.setGender_user(false);}
 
+            u.setBirthday_user(null);
+            apiService= RetrofitClient.getInstance().getRetrofit(constants.ROOT_URL).create(APIService.class);
             apiService.SignIn(u).enqueue(new Callback<UserModel>() {
                 @Override
                 public void onResponse(Call<UserModel> call, Response<UserModel> response) {
